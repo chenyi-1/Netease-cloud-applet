@@ -1,0 +1,5 @@
+    <text class="buttons-txet">{{title}}</text>
+    <view class="buttons-box1">
+      <text class="buttons-txt">{{modtitle}}</text>
+      <view class="buttons-btn">查看更多</view>
+    </view>

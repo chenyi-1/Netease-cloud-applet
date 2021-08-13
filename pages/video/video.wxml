@@ -1,0 +1,45 @@
+<view class="videoContainer">
+  <!-- 头部搜索区域 -->
+  <view class="header">
+    <image src="/start/images/video/video.jpg"></image>
+    <input type="text" placeholder="光辉岁月" placeholder-class="placeholder"></input>
+    <image src="/start/images/logo.png"></image>
+  </view>
+
+  <!-- 导航栏区域 -->
+  <scroll-view class="navScroll" 
+    enable-flex 
+    scroll-x >
+    <view class="navItem {{currentId === item.id?'active':''}}" wx:for="{{navList}}" wx:key="id" bindtap="changeCurrentId" data-id="{{item.id}}">
+      <text>{{item.name}}</text>
+    </view>
+
+  </scroll-view>
+
+  <!-- videoList区域 -->
+  <scroll-view class="videoList" scroll-y refresher-enabled bindrefresherrefresh="refresherrefresh" refresher-triggered ="{{refs}}" bindscrolltolower="scrollto">
+    <view class="videoItem" wx:for="{{videoList}}" wx:key="vid">
+      <video class="common" src="{{item.urlInfo.url}}" id="{{item.vid}}" bindplay="handlePlay" wx:if="{{item.vid === vidId}}"></video>
+      <image wx:else src="{{item.coverUrl}}" class="common" bindtap="vidId" id="{{item.vid}}"></image>
+      <view class="content">{{item.title}}</view>
+      <view class="footer">
+        <image class="avatar" src="{{item.creator.avatarUrl}}"></image>
+        <text class="nickName">{{item.creator.nickname}}</text>
+        <view class="comments_praised">
+          <text class="item">
+            <text class="iconfont icon-buoumaotubiao15"></text>
+            <text class="count">{{item.shareCount}}</text>
+          </text>
+          <text class="item">
+            <text class="iconfont icon-pinglun1"></text>
+            <text class="count">{{item.commentCount}}</text>
+          </text>
+          <button class="item btn">
+            <text class="iconfont icon-gengduo"></text>
+          </button>
+        </view>
+      </view>
+    </view>
+
+  </scroll-view>
+</view>

@@ -1,0 +1,14 @@
+.buttons-txet{
+  font-size: 28rpx;
+}
+
+ .buttons-box1{
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+ .buttons-box1 .buttons-btn{
+  border: 1rpx solid  #000;
+  border-radius: 10rpx;
+}
